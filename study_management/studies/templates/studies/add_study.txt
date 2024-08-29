@@ -1,0 +1,8 @@
+<!-- study_form.html -->
+<h2>{{ form.instance.pk|yesno:"Edit Study,Add Study" }}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <a href="{% url 'study_list' %}">Cancel</a>
+</form>

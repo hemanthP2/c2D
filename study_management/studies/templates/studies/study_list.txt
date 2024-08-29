@@ -1,0 +1,25 @@
+<table>
+    <tr>
+        <th>Study Name</th>
+        <th>Study Phase</th>
+        <th>Sponsor Name</th>
+        <th>Study Description</th>
+        <th>Actions</th>
+    </tr>
+    {% for study in studies %}
+    <tr>
+        <td>{{ study.study_name }}</td>
+        <td>{{ study.study_phase }}</td>
+        <td>{{ study.sponsor_name }}</td>
+        <td>{{ study.study_description }}</td>
+        <td>
+            <a href="{% url 'view_study' study.id %}">View</a> |
+            <a href="{% url 'edit_study' study.id %}">Edit</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No studies found.</td>
+    </tr>
+    {% endfor %}
+</table>

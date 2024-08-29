@@ -1,0 +1,24 @@
+<h2>Study Management</h2>
+<table>
+    <tr>
+        <th></th>
+        <th>Study Name</th>
+        <th>Study Phase</th>
+        <th>Sponsor Name</th>
+        <th>Study Description</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for study in studies %}
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>{{ study.study_name }}</td>
+        <td>{{ study.study_phase }}</td>
+        <td>{{ study.sponsor_name }}</td>
+        <td>{{ study.study_description }}</td>
+        <td><a href="{% url 'view_study' study.pk %}">View</a></td>
+        <td><a href="{% url 'edit_study' study.pk %}">Edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'add_study' %}"><button>Add Study</button></a>

@@ -1,0 +1,8 @@
+<!-- study_confirm_delete.html -->
+<h2>Are you sure you want to delete this study?</h2>
+<p>{{ study.study_name }}</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'study_list' %}">Cancel</a>
+</form>
